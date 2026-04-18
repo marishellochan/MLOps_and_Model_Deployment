@@ -1,0 +1,12 @@
+/data
+data
+data/
+
+mlartifacts
+mlartifacts/
+
+mlruns
+mlruns/
+
+__pycahce__/
+models/

@@ -1,0 +1,25 @@
+services:
+  api:
+    # build the API service using the Dockerfile in this folder
+    build: .
+    #naming the container
+    container_name: taxi-tip-api
+    ports:
+      - "8000:8000"
+
+    #envrionment variables
+    environment:
+      MODEL_PATH: /app/models/best_model.pkl
+      MODEL_METADATA_PATH: /app/models/model_metadata.json
+      LOOKUP_PATH: /app/data/raw/taxi_lookup.csv
+      MLFLOW_TRACKING_URI: http://mlflow:5000
+    depends_on:
+      - mlflow
+
+  mlflow:
+    # using prebuilt MLflow image instead of creating a new one
+    image: ghcr.io/mlflow/mlflow:v2.12.1
+    container_name: mlflow-server
+    ports:
+      - "5000:5000"
+    command: mlflow server --host 0.0.0.0 --port 5000
