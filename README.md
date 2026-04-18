@@ -53,15 +53,17 @@ http://localhost:8000/docs
 
 ## Docker Setup
 
-docker build -t my-ml-api .
-docker run -p 8000:8000 my-ml-api
+`docker build -t my-ml-api .`
+
+`docker run -p 8000:8000 my-ml-api`
 
 ---
 
 ## Docker Compose
 
-docker compose up --build
-docker compose down
+`docker compose up --build`
+
+`docker compose down`
 
 ---
 
